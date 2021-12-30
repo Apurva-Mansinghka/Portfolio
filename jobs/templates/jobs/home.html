@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Apurva Mansinghka Portfolio</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" >
+
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Apurva Mansinghka</h1>
+          <p class="lead text-muted">Apurva is a passionate, highly skilled and experienced developer with strong analytical skills. 
+            She has 2+ years professional experience of working in a multinational company, TCS, as a team leader.
+            She worked with a manufacturing company for more then 2 years at managerial post while understanding underlying business processes. 
+            Apurva is Masters in Computer Applications with good Academic scores and with very good programming and debugging skills.
+            Currently she is working as IT manager in an University to turn things into technology along with enhancing her knowledge and skill in Machine Learning/AI.</p>
+          <p>
+            <a href="mailto:apurva.mansinghka@gmail.com" class="btn btn-primary my-2">Email Me</a>
+          </p>
+          <img src = "{% static 'Apurva.jpg' %}"  height = 300>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+            {% for project in projects.all %}
+            
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ project.image.url }}" >
+                <div class="card-body">
+                  <p class="card-text">{{ project.title}}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <a href = "{% url 'detail' project.id %}" class="btn btn-sm btn-outline-secondary">View Details</a>
+                   </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'jquery-3.6.0.min.js'%}"></script>
+    <script src="{% static 'popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}" ></script>
+
+  </body>
+</html>
